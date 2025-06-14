@@ -26,6 +26,8 @@ def proxy_tarot():
 @app.route('/')
 def index():
     return '塔罗 API 代理已部署成功'
+import os
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get('PORT', 5000))  # Render 会自动设置 PORT 变量
+    app.run(host='0.0.0.0', port=port)
